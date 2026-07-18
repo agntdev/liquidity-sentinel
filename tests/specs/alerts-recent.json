@@ -1,19 +1,18 @@
 [
   {
-    "name": "View Recent Alerts",
+    "name": "View Recent Alerts — empty state",
     "steps": [
       {
+        "send": { "callback": "alerts:recent" },
         "expect": [
+          { "method": "answerCallbackQuery" },
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Display the most recent trade alerts"
+              "text": "No trade alerts yet — alerts will appear here when setups are detected."
             }
           }
-        ],
-        "send": {
-          "callback": "alerts:recent"
-        }
+        ]
       }
     ]
   }

@@ -1,19 +1,18 @@
 [
   {
-    "name": "Confirm Trade Opened",
+    "name": "Confirm Trade Opened — empty state",
     "steps": [
       {
+        "send": { "callback": "trade:confirm_open" },
         "expect": [
+          { "method": "answerCallbackQuery" },
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Mark a trade as opened by the owner"
+              "text": "No unconfirmed alerts right now — new setups will appear here."
             }
           }
-        ],
-        "send": {
-          "callback": "trade:confirm_open"
-        }
+        ]
       }
     ]
   }
