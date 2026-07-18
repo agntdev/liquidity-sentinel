@@ -1,19 +1,18 @@
 [
   {
-    "name": "Report Trade Closed",
+    "name": "Report Trade Closed — empty state",
     "steps": [
       {
+        "send": { "callback": "trade:report_close" },
         "expect": [
+          { "method": "answerCallbackQuery" },
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Report the outcome of a closed trade"
+              "text": "No open trades to close — confirm a trade first."
             }
           }
-        ],
-        "send": {
-          "callback": "trade:report_close"
-        }
+        ]
       }
     ]
   }
